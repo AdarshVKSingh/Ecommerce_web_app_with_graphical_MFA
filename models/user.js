@@ -11,6 +11,17 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+
+  coordinate :{
+    xcor:{
+      type:Number,
+      required : false
+    },
+    ycor:{
+      type:Number,
+      required: false
+    }
+  },
   resetToken: String,
   resetTokenExpiration: Date,
   cart: {

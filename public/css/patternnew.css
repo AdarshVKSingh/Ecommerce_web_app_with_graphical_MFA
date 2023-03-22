@@ -1,0 +1,12 @@
+#imgCanvas{
+    display: flex;
+    position: relative;
+    margin-left: 0vw;
+    left:0px;
+    top:25px;
+    border: 2px solid black;
+}
+
+#signupbut{
+    margin-left: 8vw;
+}

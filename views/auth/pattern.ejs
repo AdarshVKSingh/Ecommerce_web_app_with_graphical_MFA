@@ -16,13 +16,13 @@
 
                     <div id="images"></div>
                     <canvas  id="imgCanvas"
-                    width="400" height="400" onclick="draw()" class="imgcanvas"></canvas>
+                    width="300" height="300" onclick="draw()" class="imgcanvas"></canvas>
 
                         <br><br><br><br><br><br><br>
                        
                         <form class="login-form" action="/pattern" method="POST">
 
-                            
+                            <input type="text" name="coordinate" value="" id="coordinate" hidden>
                             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                             <button class="btn" type="submit">Login</button>
                         </form>

@@ -18,13 +18,19 @@ function createImageOnCanvas(imageId) {
 
 function draw() {
     if(circleCount==1){
-        context.clearRect(0, 0, 400, 400);
+        context.clearRect(0, 0, 300, 300);
         circleCount = 0;
     }
     var e = event;
     var pos = getMousePos(canvas,e);
     posx = pos.x;
     posy = pos.y;
+
+    const coor = document.getElementById("coordinate");
+    coor.value = `${posx} ${posy}`;
+    console.log(coor.value);
+    //console.log(posx,posy);
+
     context.fillStyle = "#000000";
     context.beginPath();
     context.arc(posx, posy, 10, 0, 2*Math.PI);
