@@ -1,9 +1,9 @@
 
 #imgCanvas{
-    display: flex;
+    display: inline-block;
     position: relative;
     margin-left: 25vw;
-    left:40px;
+    left:95px;
     top:50px;
     border: 2px solid black;
 }

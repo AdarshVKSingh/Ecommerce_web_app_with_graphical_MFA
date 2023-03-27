@@ -124,8 +124,8 @@ exports.postSignup = (req, res, next) => {
   const coordinate = req.body.coordinate;
   //console.log(coordinate);
 
-  const xcor = Number(coordinate.split(" ")[0]);
-  const ycor = Number(coordinate.split(" ")[1]);
+  const xcor = Math.floor(Number(coordinate.split(" ")[0]));
+  const ycor = Math.floor(Number(coordinate.split(" ")[1]));
 
   console.log(xcor,ycor);
 
@@ -325,78 +325,34 @@ exports.postPattern = (req, res, next) => {
     });
   }
 
- 
+ console.log(req.session.user._id);
   
-  // User.findById(req.session.user._id)
-  // .then(user => {
+  User.findById(req.session.user._id)
+  .then(user => {
+
+    const coordinate = req.body.coordinate;
+    const xcor = Math.floor(Number(coordinate.split(" ")[0]));
+    const ycor = Math.floor(Number(coordinate.split(" ")[1]));
+    const dxcor = user.coordinate.xcor;
+    const dycor = user.coordinate.ycor;
+      console.log(xcor , ycor);
+      console.log("user found");
+      console.log(dxcor,dycor);
+
       
-  // })
-  // .catch(err => console.log(err));
-  //console.log(user);
-  res.redirect('/');
-  
- 
+      if(!((dxcor<xcor+30 && dxcor > xcor-30) &&(dycor<ycor+30 && dycor > ycor-30))){
+        return req.session.destroy(err => {
+          console.log(err);
+          res.redirect('/login');
+        });
+      }
 
-  // const email = req.body.email;
-  // const password = req.body.password;
-
-  // const errors = validationResult(req);
-  // if (!errors.isEmpty()) {
-  //   return res.status(422).render('auth/login', {
-  //     path: '/login',
-  //     pageTitle: 'Login',
-  //     errorMessage: errors.array()[0].msg,
-  //     oldInput: {
-  //       email: email,
-  //       password: password
-  //     },
-  //     validationErrors: errors.array()
-  //   });
-  // }
-
-  // User.findOne({ email: email })
-  //   .then(user => {
-  //     if (!user) {
-  //       return res.status(422).render('auth/login', {
-  //         path: '/login',
-  //         pageTitle: 'Login',
-  //         errorMessage: 'Invalid email or password.',
-  //         oldInput: {
-  //           email: email,
-  //           password: password
-  //         },
-  //         validationErrors: []
-  //       });
-  //     }
-  //     bcrypt
-  //       .compare(password, user.password)
-  //       .then(doMatch => {
-  //         if (doMatch) {
-  //           req.session.isLoggedIn = true;
-  //           req.session.user = user;
-  //           return req.session.save(err => {
-  //             console.log(err);
-  //             res.redirect('/pattern');
-  //           });
-  //         }
-  //         return res.status(422).render('auth/login', {
-  //           path: '/login',
-  //           pageTitle: 'Login',
-  //           errorMessage: 'Invalid email or password.',
-  //           oldInput: {
-  //             email: email,
-  //             password: password
-  //           },
-  //           validationErrors: []
-  //         });
-  //       })
-  //       .catch(err => {
-  //         console.log(err);
-  //         res.redirect('/login');
-  //       });
-  //   })
-  //   .catch(err => console.log(err));
-
- 
+      
+      res.redirect('/');
+      
+       
+      
+  })
+  .catch(err => console.log(err));
           
 };

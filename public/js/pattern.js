@@ -3,11 +3,21 @@
 var canvas = document.getElementById("imgCanvas");
 var context = canvas.getContext("2d");
 
+var background = new Image();
+background.src = '/images/background.png';
+
+
+// background.onload = function(){
+//     context.drawImage(background,0,0);   
+// }
+
 let circleCount = 0;
 
 function createImageOnCanvas(imageId) {
     
     canvas.style.display = "block";
+    
+
     document.getElementById("images").style.overflowY = "hidden";
     var img = new Image(300, 300);
     img.src = document.getElementById(imageId).src;
