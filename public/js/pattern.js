@@ -11,6 +11,8 @@ background.src = '/images/background.png';
 //     context.drawImage(background,0,0);   
 // }
 
+ 
+
 let circleCount = 0;
 
 function createImageOnCanvas(imageId) {
@@ -27,6 +29,7 @@ function createImageOnCanvas(imageId) {
 
 
 function draw() {
+  
     if(circleCount==1){
         context.clearRect(0, 0, 300, 300);
         circleCount = 0;

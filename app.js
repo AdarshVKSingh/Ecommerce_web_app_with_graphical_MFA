@@ -11,8 +11,7 @@ const flash = require('connect-flash');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const MONGODB_URI =
-'mongodb+srv://root:shop12345mongo@cluster0.6jcmlyq.mongodb.net/shop';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 const app = express();
 const store = new MongoDBStore({
@@ -68,6 +67,7 @@ app.use(errorController.get404);
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
+    //console.log(process.env.PORT);
     app.listen(3000);
   })
   .catch(err => {
