@@ -1,6 +1,6 @@
 # Ecommerce_web_app_with_graphical_MFA
 
-#use the below link to visit the website
+#use the following link to visit the website
 https://tan-vivacious-rooster.cyclic.app
 
 #This website is used by book buyer and seller to carry out e-commerce.
