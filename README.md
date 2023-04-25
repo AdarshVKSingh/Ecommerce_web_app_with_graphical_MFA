@@ -3,7 +3,7 @@
 #use the following link to visit the website
 https://tan-vivacious-rooster.cyclic.app
 
-#This website is used by book buyer and seller to carry out e-commerce.
+#This website is used by book buyers and sellers to carry out e-commerce.
 
 #Tech Stack
   Express.JS
