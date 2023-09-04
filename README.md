@@ -14,6 +14,6 @@ https://tan-vivacious-rooster.cyclic.app
 #Some functionalities of the website are :
   MFA using username,password and graphical authentication.
   A customer can also behave as a seller ,and is provided with admin level privileges on his products only.
-  CSRF protection is Implemented.
+
   Form validation using express validator.
   
